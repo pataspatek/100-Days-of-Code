@@ -22,6 +22,8 @@ class Window():
         # Draw the borders
         self.draw_borders()
 
+        self.game_running = False
+
 
     def update_screen(self):
         # Update the screen
@@ -52,3 +54,7 @@ class Window():
             else:
                 border_turtle.forward(538)
                 border_turtle.left(90)
+
+
+    def game_start(self):
+        self.game_running = True

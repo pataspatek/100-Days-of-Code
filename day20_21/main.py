@@ -38,8 +38,10 @@ def main():
         # Add a delay to slow down the game
         time.sleep(0.05)
 
-        # Move the snake
-        snake.move()
+        if screen.game_running:
+            # Move the snake
+            snake.move()
+            scoreboard.update_score()
 
         # Detect collision with a food
         if snake.head.distance(food) < 15:
@@ -85,6 +87,9 @@ def main():
 def setup_key_bindings(screen, snake):
     # Listen for keyboard input
     screen.listen()
+
+    # Space bar starts the game
+    screen.screen.onkeypress(screen.game_start, "space")
 
     # Set up the arrow keys to control the snake movement
     screen.screen.onkey(snake.up, "w")

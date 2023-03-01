@@ -13,14 +13,14 @@ class Scoreboard(Turtle):
         self.penup()
         self.hideturtle()
         self.color(TEXT_COLOR)
-        self.goto(0, 260)
         self.score = 0 # Set initial score to zero
-        self.update_score()
-
+        self.before_game()
+        
 
     def update_score(self):
         """Updates the scoreboard with the current score"""
         self.clear()
+        self.goto(0, 260)
         self.write(f"Score: {self.score}", align=ALIGMENT, font=FONT)
 
 
@@ -34,3 +34,10 @@ class Scoreboard(Turtle):
         """Displays 'GAME OVER' message on the screen"""
         self.goto(0, 0)
         self.write("GAME OVER", align=ALIGMENT, font=FONT)
+
+
+    def before_game(self):
+        self.goto(0, 0)
+        self.write("PRESS 'SPACE' TO START", align=ALIGMENT, font=FONT)
+        self.goto(0, 260)
+        self.write("SNAKE GAME!", align=ALIGMENT, font=FONT)
